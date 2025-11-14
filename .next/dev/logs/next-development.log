@@ -1,0 +1,20 @@
+[00:00:02.963] Server  LOG      ✓ Ready in 1905ms
+[00:00:26.555] Server  LOG      ○ Compiling /card ...
+[00:00:41.295] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:48.934] Server  WARN     ⚠ The "images.domains" configuration is deprecated. Please use "images.remotePatterns" configuration instead.
+[00:00:49.097] Server  ERROR   TypeError: fetch failed
+[00:00:52.103] Server  LOG      ○ Compiling /_error ...
+[00:02:56.864] Server  LOG      ✓ Compiled in 49ms
+[00:03:17.736] Server  LOG      ✓ Compiled in 83ms
+[00:03:33.985] Server  LOG      ✓ Compiled in 13ms
+[00:04:03.817] Server  LOG      ✓ Compiled in 89ms
+[00:04:24.219] Server  LOG      ✓ Compiled in 346ms
+[00:04:24.743] Server  ERROR   TypeError: fetch failed
+[00:04:39.069] Server  LOG      ✓ Compiled in 228ms
+[00:04:39.542] Server  ERROR   TypeError: fetch failed
+[00:05:27.025] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:05:33.173] Server  ERROR   TypeError: fetch failed
+[00:12:39.570] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:24:31.522] Server  LOG      ✓ Compiled in 0ms
+[00:24:40.439] Server  ERROR   TypeError: fetch failed
+[00:32:26.287] Server  ERROR   TypeError: fetch failed

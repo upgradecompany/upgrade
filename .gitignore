@@ -1,0 +1,44 @@
+# Dependencies
+node_modules/
+.expo/
+.expo-shared/
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# OS files
+.DS_Store
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build
+dist/
+build/
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+
+# Testing
+coverage/
+
+# Temporary files
+*.tmp
+*.temp
