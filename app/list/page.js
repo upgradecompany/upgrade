@@ -649,9 +649,9 @@ export default function TheListPage() {
                     href={EbayAffiliateService.generateRawCardLink(`${card.name} ${card.year} ${card.brand}`)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 bg-white hover:bg-orange-50 border-[3px] border-orange-500 hover:border-orange-600 px-4 py-3 rounded-lg font-semibold text-sm transition-all shadow-lg hover:shadow-xl"
+                    className="inline-flex items-center justify-center gap-2 bg-white hover:bg-red-50 border-[3px] border-red-500 hover:border-red-600 px-4 py-3 rounded-lg font-semibold text-sm transition-all shadow-lg hover:shadow-xl"
                     style={{
-                      boxShadow: '0 6px 12px rgba(249, 115, 22, 0.3), inset 0 1px 0 rgba(255,255,255,0.9)'
+                      boxShadow: '0 6px 12px rgba(239, 68, 68, 0.3), inset 0 1px 0 rgba(255,255,255,0.9)'
                     }}
                     title="Buy Raw Card on eBay"
                   >
@@ -663,15 +663,15 @@ export default function TheListPage() {
                         <tspan fill="#86B817">y</tspan>
                       </text>
                     </svg>
-                    <span className="text-xs text-orange-600 font-bold">RAW</span>
+                    <span className="text-xs text-red-600 font-bold">RAW</span>
                   </a>
                   <a
                     href={EbayAffiliateService.generatePSA10Link(`${card.name} ${card.year} ${card.brand}`)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 bg-white hover:bg-blue-50 border-[3px] border-blue-500 hover:border-blue-600 px-4 py-3 rounded-lg font-semibold text-sm transition-all shadow-lg hover:shadow-xl"
+                    className="inline-flex items-center justify-center gap-2 bg-white hover:bg-red-50 border-[3px] border-red-500 hover:border-red-600 px-4 py-3 rounded-lg font-semibold text-sm transition-all shadow-lg hover:shadow-xl"
                     style={{
-                      boxShadow: '0 6px 12px rgba(37, 99, 235, 0.3), inset 0 1px 0 rgba(255,255,255,0.9)'
+                      boxShadow: '0 6px 12px rgba(239, 68, 68, 0.3), inset 0 1px 0 rgba(255,255,255,0.9)'
                     }}
                     title="Buy PSA 10 on eBay"
                   >
@@ -683,7 +683,7 @@ export default function TheListPage() {
                         <tspan fill="#86B817">y</tspan>
                       </text>
                     </svg>
-                    <span className="text-xs text-blue-600 font-bold">PSA 10</span>
+                    <span className="text-xs text-red-600 font-bold">PSA 10</span>
                   </a>
                 </div>
               </div>
