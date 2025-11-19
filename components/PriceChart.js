@@ -16,7 +16,7 @@ export default function PriceChart({ rawPriceHistory, psa10PriceHistory }) {
 
   return (
     <div className="bg-white rounded-xl shadow-lg p-6">
-      <h3 className="text-xl font-bold text-gray-900 mb-4">12-Month Price Movement</h3>
+      <h3 className="text-xl font-bold text-gray-900 mb-4">90-Day Price Movement</h3>
       <ResponsiveContainer width="100%" height={400}>
         <LineChart data={chartData}>
           <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />

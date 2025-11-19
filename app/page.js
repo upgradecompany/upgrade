@@ -1,23 +1,80 @@
+'use client'
+
 import Link from 'next/link'
+import { useState } from 'react'
+import { useAuth } from '@/lib/AuthContext'
+import SignupModal from '@/components/SignupModal'
+import LoginModal from '@/components/LoginModal'
 
 export default function Home() {
+  const [showSignupModal, setShowSignupModal] = useState(false)
+  const [showLoginModal, setShowLoginModal] = useState(false)
+  const { user, logout } = useAuth()
+
+  const handleGetStarted = (e) => {
+    if (!user) {
+      e.preventDefault()
+      setShowSignupModal(true)
+    }
+  }
+
   return (
-    <div className="min-h-screen bg-white overflow-hidden">
+    <>
+      <SignupModal isOpen={showSignupModal} onClose={() => setShowSignupModal(false)} />
+      <LoginModal
+        isOpen={showLoginModal}
+        onClose={() => setShowLoginModal(false)}
+        onSwitchToSignup={() => setShowSignupModal(true)}
+      />
+      <div className="min-h-screen bg-white overflow-hidden">
       {/* Header */}
       <header className="bg-white border-b border-gray-200 relative z-50">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-8">
             <div className="text-3xl font-bold text-blue-600">
               <span className="text-blue-600">Up</span>
               <span className="text-gray-800">Grade</span>
             </div>
+            <Link
+              href="/list"
+              className="text-gray-700 hover:text-blue-600 font-bold text-lg transition-colors"
+            >
+              THE LIST
+            </Link>
           </div>
-          <Link
-            href="/card"
-            className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg font-semibold transition-all shadow-md hover:shadow-lg"
-          >
-            Get Started
-          </Link>
+          <div className="flex items-center gap-4">
+            {user ? (
+              <>
+                <Link
+                  href="/dashboard"
+                  className="text-gray-700 hover:text-blue-600 font-semibold transition-colors"
+                >
+                  Dashboard
+                </Link>
+                <button
+                  onClick={logout}
+                  className="text-gray-600 hover:text-red-600 font-semibold transition-colors"
+                >
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <button
+                  onClick={() => setShowLoginModal(true)}
+                  className="text-gray-700 hover:text-blue-600 font-semibold transition-colors"
+                >
+                  Log In
+                </button>
+                <button
+                  onClick={() => setShowSignupModal(true)}
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg font-semibold transition-all shadow-md hover:shadow-lg"
+                >
+                  Start Free Trial
+                </button>
+              </>
+            )}
+          </div>
         </div>
       </header>
 
@@ -134,7 +191,7 @@ export default function Home() {
 
                     {/* Mini Chart */}
                     <div className="bg-white rounded-lg shadow p-4">
-                      <div className="text-xs text-gray-700 font-semibold mb-2">12-MONTH PRICE TREND</div>
+                      <div className="text-xs text-gray-700 font-semibold mb-2">90-DAY PRICE TREND</div>
                       <div className="flex items-end justify-between h-16 gap-1">
                         {[40, 45, 42, 50, 48, 55, 52, 58, 60, 62, 65, 70].map((height, i) => (
                           <div
@@ -153,12 +210,21 @@ export default function Home() {
 
           {/* CTA Button */}
           <div className="text-center mt-12">
-            <Link
-              href="/card"
-              className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-xl text-lg font-bold transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
-            >
-              Analyze Your Card Now
-            </Link>
+            {user ? (
+              <Link
+                href="/card"
+                className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-xl text-lg font-bold transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
+              >
+                Analyze Your Card Now
+              </Link>
+            ) : (
+              <button
+                onClick={() => setShowSignupModal(true)}
+                className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-xl text-lg font-bold transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
+              >
+                Start Free Trial - Analyze Cards
+              </button>
+            )}
           </div>
         </div>
       </section>
@@ -193,7 +259,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-bold mb-3">COMPREHENSIVE ANALYSIS</h3>
               <p className="text-blue-100 leading-relaxed">
-                See PSA 10 pop counts, success rates, 12-month price trends, and last 20 sales. Everything you need to make the right decision.
+                See PSA 10 pop counts, success rates, 90-day price trends, and last 20 sales. Everything you need to make the right decision.
               </p>
             </div>
 
@@ -222,12 +288,21 @@ export default function Home() {
           <p className="text-xl text-gray-600 mb-8">
             Join thousands of collectors who use UpGrade to maximize their ROI
           </p>
-          <Link
-            href="/card"
-            className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-12 py-5 rounded-xl text-xl font-bold transition-all shadow-lg hover:shadow-xl"
-          >
-            Start Analyzing - It's Free
-          </Link>
+          {user ? (
+            <Link
+              href="/card"
+              className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-12 py-5 rounded-xl text-xl font-bold transition-all shadow-lg hover:shadow-xl"
+            >
+              Go to Dashboard
+            </Link>
+          ) : (
+            <button
+              onClick={() => setShowSignupModal(true)}
+              className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-12 py-5 rounded-xl text-xl font-bold transition-all shadow-lg hover:shadow-xl"
+            >
+              Start Your 14-Day Free Trial
+            </button>
+          )}
         </div>
       </section>
 
@@ -244,6 +319,7 @@ export default function Home() {
           </div>
         </div>
       </footer>
-    </div>
+      </div>
+    </>
   )
 }

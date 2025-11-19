@@ -1,5 +1,7 @@
 'use client'
 
+import { EbayAffiliateService } from '../lib/EbayAffiliateService'
+
 export default function SalesHistory({ rawSalesHistory, psa10SalesHistory }) {
   const formatCurrency = (value) => {
     return `$${parseFloat(value).toLocaleString('en-US', {
@@ -26,7 +28,7 @@ export default function SalesHistory({ rawSalesHistory, psa10SalesHistory }) {
                 <tr className="border-b-2 border-gray-200">
                   <th className="text-left py-3 px-2 text-xs font-semibold text-gray-600 uppercase">Date</th>
                   <th className="text-right py-3 px-2 text-xs font-semibold text-gray-600 uppercase">Price</th>
-                  <th className="text-right py-3 px-2 text-xs font-semibold text-gray-600 uppercase">Platform</th>
+                  <th className="text-center py-3 px-2 text-xs font-semibold text-gray-600 uppercase">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -48,8 +50,26 @@ export default function SalesHistory({ rawSalesHistory, psa10SalesHistory }) {
                     <td className="py-3 px-2 text-sm font-semibold text-gray-900 text-right">
                       {formatCurrency(sale.price)}
                     </td>
-                    <td className="py-3 px-2 text-xs text-gray-600 text-right">
-                      {sale.platform}
+                    <td className="py-3 px-2 text-center">
+                      <a
+                        href={sale.title ? EbayAffiliateService.generateSearchLink(sale.title, `raw-sale-${sale.id}`) : EbayAffiliateService.generateRawCardLink(sale.title || 'card')}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3 py-2 bg-white hover:bg-blue-50 border-[3px] border-blue-500 hover:border-blue-600 rounded-lg transition-all shadow-md hover:shadow-lg"
+                        style={{
+                          boxShadow: '0 4px 6px rgba(37, 99, 235, 0.2), inset 0 1px 0 rgba(255,255,255,0.8)'
+                        }}
+                        title="Buy on eBay"
+                      >
+                        <svg className="h-3.5" viewBox="0 0 300 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <text x="10" y="80" fontFamily="Arial, sans-serif" fontWeight="bold" fontSize="80">
+                            <tspan fill="#E53238">e</tspan>
+                            <tspan fill="#0064D2">B</tspan>
+                            <tspan fill="#F5AF02">a</tspan>
+                            <tspan fill="#86B817">y</tspan>
+                          </text>
+                        </svg>
+                      </a>
                     </td>
                   </tr>
                 ))}
@@ -82,7 +102,7 @@ export default function SalesHistory({ rawSalesHistory, psa10SalesHistory }) {
                 <tr className="border-b-2 border-blue-200">
                   <th className="text-left py-3 px-2 text-xs font-semibold text-gray-600 uppercase">Date</th>
                   <th className="text-right py-3 px-2 text-xs font-semibold text-gray-600 uppercase">Price</th>
-                  <th className="text-right py-3 px-2 text-xs font-semibold text-gray-600 uppercase">Platform</th>
+                  <th className="text-center py-3 px-2 text-xs font-semibold text-gray-600 uppercase">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -104,8 +124,26 @@ export default function SalesHistory({ rawSalesHistory, psa10SalesHistory }) {
                     <td className="py-3 px-2 text-sm font-semibold text-blue-900 text-right">
                       {formatCurrency(sale.price)}
                     </td>
-                    <td className="py-3 px-2 text-xs text-gray-600 text-right">
-                      {sale.platform}
+                    <td className="py-3 px-2 text-center">
+                      <a
+                        href={sale.title ? EbayAffiliateService.generateSearchLink(sale.title, `psa10-sale-${sale.id}`) : EbayAffiliateService.generatePSA10Link(sale.title || 'card')}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3 py-2 bg-white hover:bg-blue-50 border-[3px] border-blue-500 hover:border-blue-600 rounded-lg transition-all shadow-md hover:shadow-lg"
+                        style={{
+                          boxShadow: '0 4px 6px rgba(37, 99, 235, 0.2), inset 0 1px 0 rgba(255,255,255,0.8)'
+                        }}
+                        title="Buy on eBay"
+                      >
+                        <svg className="h-3.5" viewBox="0 0 300 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <text x="10" y="80" fontFamily="Arial, sans-serif" fontWeight="bold" fontSize="80">
+                            <tspan fill="#E53238">e</tspan>
+                            <tspan fill="#0064D2">B</tspan>
+                            <tspan fill="#F5AF02">a</tspan>
+                            <tspan fill="#86B817">y</tspan>
+                          </text>
+                        </svg>
+                      </a>
                     </td>
                   </tr>
                 ))}

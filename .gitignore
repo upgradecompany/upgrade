@@ -28,6 +28,8 @@ yarn-error.log*
 # Build
 dist/
 build/
+.next/
+out/
 *.jks
 *.p8
 *.p12
@@ -42,3 +44,8 @@ coverage/
 # Temporary files
 *.tmp
 *.temp
+
+# Documentation with sensitive info
+EBAY_API_STATUS_REPORT.md
+EBAY_API_SETUP.md
+EBAY_AFFILIATE_SETUP.md

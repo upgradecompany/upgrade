@@ -4,11 +4,18 @@ const nextConfig = {
   reactStrictMode: true,
   // Allow images from external sources
   images: {
-    domains: ['images.psacard.com'],
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'images.psacard.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.ebayimg.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.ebayimg.com',
       },
     ],
   },
